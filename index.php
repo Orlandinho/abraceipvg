@@ -2,13 +2,18 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim();
+use \Slim\Slim;
+use \Abrace\Page;
+
+$app = new Slim();
 
 $app->config('debug', true);
 
 $app->get('/', function() {
+
+	$page = new Page;
     
-	echo "OK";
+	$page->setTpl("index");
 
 });
 
