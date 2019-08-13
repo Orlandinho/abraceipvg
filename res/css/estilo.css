@@ -1,5 +1,17 @@
+
+html, body {
+margin: 0;
+padding: 0;
+height: 100%;
+}
+
 a {
 	color: #fff
+}
+
+.wrapper{
+min-height: 100%;
+position: relative;
 }
 
 /* Mudar a cor dos inputs quando selecionados Bootstrap */
@@ -8,9 +20,8 @@ a {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(234, 123, 134, 0.6);
 }
 
-.cadastro {
-
-	margin-top: 80px
+.espaco {
+	margin-bottom: 80px;
 }
 
 /* Mudar a cor dos checkbox Bootstrap */
@@ -37,5 +48,5 @@ a {
 .rodape {
 	background-color: #333;
 	color: #fff;
-	margin-top: 60px;
+  width: 100%;
 }

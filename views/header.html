@@ -18,10 +18,11 @@
 			  		</button>
 			  		<div class="collapse navbar-collapse" id="navbarToggle">
 			    		<div class="navbar-nav">
-			      			<a class="nav-item nav-link active" href="#">Cadastro</a>
+			      			<a class="nav-item nav-link active" href="/cadastro">Cadastro</a>
 			      			<a class="nav-item nav-link" href="/pesquisa">Pesquisa</a>
 			      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
 			    		</div>
 			  		</div>
 		  		</div>
 			</nav>
+			<div class="espaco"></div>
