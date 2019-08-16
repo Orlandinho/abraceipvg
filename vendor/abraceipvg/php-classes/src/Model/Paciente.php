@@ -76,11 +76,54 @@ class Paciente extends Model {
 			":email"=>$this->getemail(),
 			":tel"=>$this->gettel(),
 			":cel"=>$this->getcel(),
-			":consulta"=>$this->getconsulta()
+			":consulta"=>$this->getopcoes()
 		]);
 
 		$this->setData($results);
 	}
+
+	public function get($idpaciente)
+	{
+	 
+		$sql = new Sql();
+		 
+		$results = $sql->select("SELECT * FROM tb_pacientes WHERE idpaciente = :idpaciente;", array(
+		":idpaciente"=>$idpaciente
+		));
+		 
+		$data = $results[0];
+		 
+		$this->setData($data);
+	 
+	 }
+
+	 public function getCheckbox($idpaciente)
+	{
+	 
+		$sql = new Sql();
+
+		$data = [];
+		 
+		$results = $sql->select("SELECT consulta FROM tb_consultas WHERE idpaciente = :idpaciente;", array(
+		":idpaciente"=>$idpaciente
+		));
+
+		foreach ($results as $valor) {
+
+			foreach ($valor as $key => $value) {
+				
+				array_push($data, $value);
+			}
+		}
+
+		$opcoes = [
+			"clinico"=>in_array("1 ", $data) ? 1 : null,
+			"dentista"=>in_array("2 ", $data) ? 2 : null,
+			"psicologo"=>in_array("3 ", $data) ? 3 : null
+		];
+		 
+		return $opcoes;
+	 }
 
 	public function delete()
 	{

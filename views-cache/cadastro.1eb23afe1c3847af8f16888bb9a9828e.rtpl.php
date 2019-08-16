@@ -2,10 +2,23 @@
 	<div class="container">
 		<p><h3>Cadastro</h3></p>
 		<?php if( $error != '' ){ ?>
-    	<p class="alert alert-danger">
-			<?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
-		</p>
+    	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  			<p><?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  			</button>
+		</div>
 		<?php } ?>
+
+		<?php if( $success != '' ){ ?>
+    	<div class="alert alert-success alert-dismissible fade show" role="alert">
+  			<p><?php echo htmlspecialchars( $success, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  			</button>
+		</div>
+		<?php } ?>
+
 		<div class="clearfix">
 			<div class="float-right">
 				<span class="text-danger">* </span><small>Campo obrigatório</small>

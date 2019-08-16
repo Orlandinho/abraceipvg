@@ -24,7 +24,7 @@
         				<td><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
 
         				<td>
-        					<a href="/pesquisa/editar/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-sm btn-secondary text-right"><i class="fa fa-edit"></i> Editar</a>
+        					<a href="/pesquisa/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-sm btn-secondary text-right"><i class="fa fa-edit"></i> Editar</a>
         				</td>
 
         				<td>

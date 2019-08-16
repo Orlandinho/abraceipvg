@@ -12,7 +12,8 @@ $app->get('/cadastro', function() {
 	$page = new Page;
     
 	$page->setTpl("cadastro", [
-		"error"=>Paciente::getError()
+		"error"=>Paciente::getError(),
+		"success"=>Paciente::getSuccess()
 	]);
 
 });
@@ -53,8 +54,27 @@ $app->post('/cadastro', function(){
 
 	$paciente->save();
 
+	Paciente::setSuccess("Cadastro realizado!");
+
 	header("Location: /cadastro");
 	exit;
+});
+
+$app->get('/pesquisa/:idpaciente', function($idpaciente){
+
+	$paciente = new Paciente();
+
+	$paciente->get((int)$idpaciente);
+
+	$check = $paciente->getCheckbox((int)$idpaciente);
+
+	$page = new Page();
+
+	$page->setTpl('editar', [
+		'paciente'=>$paciente->getValues(),
+		'check'=>$check,
+		'error'=>''
+	]);
 });
 
 $app->get('/pesquisa', function(){

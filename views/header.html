@@ -5,9 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Abrace IPVG</title>
-		<link href="res/css/all.min.css" rel="stylesheet">
-		<link href="res/css/bootstrap.min.css" rel="stylesheet">
-		<link href="res/css/estilo.css" rel="stylesheet">
+		<link href="/res/css/all.min.css" rel="stylesheet">
+		<link href="/res/css/bootstrap.min.css" rel="stylesheet">
+		<link href="/res/css/estilo.css" rel="stylesheet">
 	</head>
 		<body>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-danger fixed-top">
