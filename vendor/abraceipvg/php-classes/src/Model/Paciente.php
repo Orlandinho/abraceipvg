@@ -82,18 +82,36 @@ class Paciente extends Model {
 		$this->setData($results);
 	}
 
+	public function update()
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_update_paciente(:idpaciente, :nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :consulta)", [
+			"idpaciente"=>$this->getidpaciente(),
+			":nome"=>$this->getnome(),
+			":endereco"=>$this->getendereco(),
+			":bairro"=>$this->getbairro(),
+			":cep"=>$this->getcep(),
+			":cidade"=>$this->getcidade(),
+			":email"=>$this->getemail(),
+			":tel"=>$this->gettel(),
+			":cel"=>$this->getcel(),
+			":consulta"=>$this->getopcoes()
+		]);
+
+		$this->setData($results);
+	}
+
 	public function get($idpaciente)
 	{
 	 
 		$sql = new Sql();
 		 
-		$results = $sql->select("SELECT * FROM tb_pacientes WHERE idpaciente = :idpaciente;", array(
+		$results = $sql->select("SELECT * FROM tb_pacientes WHERE idpaciente = :idpaciente", array(
 		":idpaciente"=>$idpaciente
 		));
 		 
-		$data = $results[0];
-		 
-		$this->setData($data);
+		$this->setData($results[0]);
 	 
 	 }
 
@@ -130,7 +148,7 @@ class Paciente extends Model {
 
 		$sql = new Sql();
 
-		$sql->query("CALL sp_delete_paciente(:idpaciente)", [
+		$sql->query("CALL sp_paciente_delete(:idpaciente)", [
 			":idpaciente"=>$this->getidpaciente()
 		]);
 	}

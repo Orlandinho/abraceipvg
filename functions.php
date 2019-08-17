@@ -2,9 +2,9 @@
 
 use \Abrace\Model\Paciente;
 
-function corrigirNome($cidade)
+function corrigirNome($nome)
 {
-	$corrigido = utf8_encode($cidade);
+	$corrigido = utf8_decode($nome);
 
 	return $corrigido;
 }

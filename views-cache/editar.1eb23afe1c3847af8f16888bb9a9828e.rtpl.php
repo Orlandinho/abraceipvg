@@ -2,9 +2,12 @@
 	<div class="container">
 		<p><h3>Atualizar Cadastro</h3></p>
 		<?php if( $error != '' ){ ?>
-    	<p class="alert alert-danger">
-			<?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
-		</p>
+    	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+  			<p><?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  			</button>
+		</div>
 		<?php } ?>
 		<div class="clearfix">
 			<div class="float-right">
@@ -12,7 +15,7 @@
 				<span class="text-danger ml-2">** </span><small>É necessário pelo menos um contato</small>
 			</div>
 		</div>
-		<form method="post" action="/pesquisa/:idpaciente">
+		<form method="post" action="/pesquisa/<?php echo htmlspecialchars( $paciente["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
 
 		  	<div class="form-group">
 		    	<label for="inputAddress">Nome Completo</label><span class="text-danger"> *</span>

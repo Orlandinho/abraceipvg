@@ -60,6 +60,18 @@ $app->post('/cadastro', function(){
 	exit;
 });
 
+$app->get('/pesquisa/:idpaciente/delete', function($idpaciente){
+
+	$paciente = new Paciente();
+
+	$paciente->get((int)$idpaciente);
+
+	$paciente->delete();
+
+	header("Location: /pesquisa");
+	exit;
+});
+
 $app->get('/pesquisa/:idpaciente', function($idpaciente){
 
 	$paciente = new Paciente();
@@ -73,8 +85,46 @@ $app->get('/pesquisa/:idpaciente', function($idpaciente){
 	$page->setTpl('editar', [
 		'paciente'=>$paciente->getValues(),
 		'check'=>$check,
-		'error'=>''
+		'error'=>Paciente::getError()
 	]);
+});
+
+$app->post('/pesquisa/:idpaciente', function($idpaciente){
+
+	if (!isset($_POST['nome']) || $_POST['nome'] == ''){
+
+		Paciente::setError("O nome é obrigatório!");
+		header("Location: /cadastro");
+		exit;
+	}
+
+	if (!isset($_POST['opcoes']) || $_POST['opcoes'] == ''){
+
+		Paciente::setError("Escolha pelo menos uma especialidade!");
+		header("Location: /cadastro");
+		exit;
+	}
+
+	$data = implode(" ,", $_POST['opcoes']);
+
+	$data = $data . " ,";
+
+	$_POST['opcoes'] = $data;
+
+	$_POST['idpaciente'] = $idpaciente;
+
+	$paciente = new Paciente();
+
+	$paciente->get((int)$idpaciente);
+
+	$paciente->setData($_POST);
+
+	$paciente->update();
+
+	Paciente::setSuccess("Dados alterados!");
+
+	header("Location: /pesquisa");
+	exit;
 });
 
 $app->get('/pesquisa', function(){

@@ -11,12 +11,13 @@
 
         <h4 class="my-4 text-center">Lista de Pessoas Cadastradas</h4>
 
-        <div class="col-md-8 mx-auto border border-danger rounded-lg">
+        <div class="col-md-10 mx-auto border border-danger rounded-lg">
         	<table class="table table-sm table-borderless">
         		<thead>
         			<th class="text-center">Nome</th>
-        			<th class="text-center" style="width: 100px">Editar</th>
-        			<th class="text-center" style="width: 100px">Excluir</th>
+        			<th class="text-center" style="width: 100px">Detalhes</th>
+        			<th class="text-center" style="width: 85px">Editar</th>
+        			<th class="text-center" style="width: 85px">Excluir</th>
         		</thead>
         		<tbody>
         			<?php $counter1=-1;  if( isset($pacientes) && ( is_array($pacientes) || $pacientes instanceof Traversable ) && sizeof($pacientes) ) foreach( $pacientes as $key1 => $value1 ){ $counter1++; ?>
@@ -24,11 +25,15 @@
         				<td><?php echo htmlspecialchars( $value1["nome"], ENT_COMPAT, 'UTF-8', FALSE ); ?></td>
 
         				<td>
-        					<a href="/pesquisa/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-sm btn-secondary text-right"><i class="fa fa-edit"></i> Editar</a>
+        					<a href="/detalhes/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-sm btn-outline-secondary text-center"><i class="fa fa-user"></i>  Detalhes</a>
         				</td>
 
         				<td>
-        					<a href="/pesquisa/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-sm btn-danger text-right"><i class="fa fa-trash"></i> Excluir</a>
+        					<a href="/pesquisa/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" class="btn btn-sm btn-secondary text-center"><i class="fa fa-edit"></i> Editar</a>
+        				</td>
+
+        				<td>
+        					<a href="/pesquisa/<?php echo htmlspecialchars( $value1["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>/delete" onclick="return confirm('Deseja realmente excluir este registro?')" class="btn btn-sm btn-danger text-center"><i class="fa fa-trash"></i> Excluir</a>
         				</td>
         			</tr>
         			<?php } ?>
