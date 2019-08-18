@@ -127,6 +127,22 @@ $app->post('/pesquisa/:idpaciente', function($idpaciente){
 	exit;
 });
 
+$app->get('/detalhes/:idpaciente', function($idpaciente){
+
+	$page = new Page();
+
+	$paciente = new Paciente();
+
+	$paciente->get((int)$idpaciente);
+
+	$consultas = $paciente->getConsultas((int)$idpaciente);
+
+	$page->setTpl('detalhes', [
+		'consultas'=>$consultas,
+		'paciente'=>$paciente->getValues()
+	]);
+});
+
 $app->get('/pesquisa', function(){
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
@@ -160,7 +176,8 @@ $app->get('/pesquisa', function(){
 	$page->setTpl("pesquisa", array(
 		"pacientes"=>$pagination['data'],
 		'search'=>$search,
-		'pages'=>$pages
+		'pages'=>$pages,
+		'success'=>Paciente::getSuccess()
 	));
 
 });

@@ -14,6 +14,13 @@ min-height: 100%;
 position: relative;
 }
 
+.rodape {
+  background-color: #333;
+  color: #fff;
+  width: 100%;
+}
+
+
 /* Mudar a cor dos inputs quando selecionados Bootstrap */
 .form-control:focus {
   border-color: #dc3545;
@@ -45,8 +52,31 @@ position: relative;
   border-color: #dc3545;
 }
 
-.rodape {
-	background-color: #333;
-	color: #fff;
-  width: 100%;
+.page-link {
+  position: relative;
+  display: block;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: #dc3545;
+  background-color: #fff;
+  border: 1px solid #dc3545;
+}
+
+.page-link:hover {
+  z-index: 2;
+  color: #fff;
+  text-decoration: none;
+  background-color: #dc3545;
+  border-color: #dee2e6;
+}
+
+/* Mudar a cor dos ícones do fontawesome */
+
+.fa-check {
+  color: green;
+}
+
+.fa-times {
+  color: red;
 }

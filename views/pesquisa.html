@@ -11,6 +11,15 @@
 
         <h4 class="my-4 text-center">Lista de Pessoas Cadastradas</h4>
 
+        {if="$success != ''"}
+    	<div class="alert alert-success alert-dismissible fade show" role="alert">
+  			<p>{$success}</p>
+  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    		<span aria-hidden="true">&times;</span>
+  			</button>
+		</div>
+		{/if}
+
         <div class="col-md-10 mx-auto border border-danger rounded-lg">
         	<table class="table table-sm table-borderless">
         		<thead>
@@ -22,10 +31,10 @@
         		<tbody>
         			{loop="$pacientes"}
         			<tr>
-        				<td>{$value.nome}</td>
+        				<td>{function="corrigirNome($value.nome)"}</td>
 
         				<td>
-        					<a href="/detalhes/{$value.idpaciente}" class="btn btn-sm btn-outline-secondary text-center"><i class="fa fa-user"></i>  Detalhes</a>
+        					<a href="/detalhes/{$value.idpaciente}" class="btn btn-sm btn-light text-center"><i class="fa fa-user"></i>  Detalhes</a>
         				</td>
 
         				<td>
@@ -40,13 +49,13 @@
         		</tbody>
         	</table>
 
-        	<div class="mx-auto">
-              <ul class="pagination pagination-sm">
+        	<nav class="mx-auto">
+              <ul class="pagination pagination-sm justify-content-center">
                 {loop="$pages"}
-                <li><a href="{$value.href}">{$value.text}</a></li>
+                <li class="page-item"><a class="page-link" href="{$value.href}">{$value.text}</a></li>
                 {/loop}
               </ul>
-            </div>
+            </nav>
 
         </div>
     </div>

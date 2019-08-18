@@ -68,11 +68,11 @@ class Paciente extends Model {
 		$sql = new Sql();
 
 		$results = $sql->select("CALL sp_save_paciente_consultas(:nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :consulta)", [
-			":nome"=>$this->getnome(),
-			":endereco"=>$this->getendereco(),
-			":bairro"=>$this->getbairro(),
+			":nome"=>utf8_decode($this->getnome()),
+			":endereco"=>utf8_decode($this->getendereco()),
+			":bairro"=>utf8_decode($this->getbairro()),
 			":cep"=>$this->getcep(),
-			":cidade"=>$this->getcidade(),
+			":cidade"=>utf8_decode($this->getcidade()),
 			":email"=>$this->getemail(),
 			":tel"=>$this->gettel(),
 			":cel"=>$this->getcel(),
@@ -88,11 +88,11 @@ class Paciente extends Model {
 
 		$results = $sql->select("CALL sp_update_paciente(:idpaciente, :nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :consulta)", [
 			"idpaciente"=>$this->getidpaciente(),
-			":nome"=>$this->getnome(),
-			":endereco"=>$this->getendereco(),
-			":bairro"=>$this->getbairro(),
+			":nome"=>utf8_decode($this->getnome()),
+			":endereco"=>utf8_decode($this->getendereco()),
+			":bairro"=>utf8_decode($this->getbairro()),
 			":cep"=>$this->getcep(),
-			":cidade"=>$this->getcidade(),
+			":cidade"=>utf8_decode($this->getcidade()),
 			":email"=>$this->getemail(),
 			":tel"=>$this->gettel(),
 			":cel"=>$this->getcel(),
@@ -122,7 +122,7 @@ class Paciente extends Model {
 
 		$data = [];
 		 
-		$results = $sql->select("SELECT consulta FROM tb_consultas WHERE idpaciente = :idpaciente;", array(
+		$results = $sql->select("SELECT consulta FROM tb_consultas WHERE idpaciente = :idpaciente", array(
 		":idpaciente"=>$idpaciente
 		));
 
@@ -141,6 +141,18 @@ class Paciente extends Model {
 		];
 		 
 		return $opcoes;
+	 }
+
+	 public function getConsultas($idpaciente)
+	 {
+
+	 	$sql = new Sql();
+
+	 	$results = $sql->select("SELECT * FROM tb_consultas WHERE idpaciente = :idpaciente", [
+	 		":idpaciente"=>$idpaciente
+	 	]);
+
+	 	return $results;
 	 }
 
 	public function delete()

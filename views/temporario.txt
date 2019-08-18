@@ -1,0 +1,39 @@
+<!--
+		<div class="row">
+			<label class="col-md-1"><b>Nome</b></label>
+			<p class="col-md-5">{}</p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-1"><b>Endereço</b></label>
+			<p class="col-md-5">{}</p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-1"><b>Cidade</b></label>
+			<p class="col-md-3">{}</p>
+
+			<label class="col-md-1"><b>Bairro</b></label>
+			<p class="col-md-3">{}</p>
+
+			<label class="col-md-1"><b>Cep</b></label>
+			<p class="col-md-3">{}</p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-1"><b>E-mail</b></label>
+			<p class="col-md-5">{}</p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-1"><b>Telefone</b></label>
+			<p class="col-md-3">{}</p>
+
+			<label class="col-md-1"><b>Celular</b></label>
+			{if="Paciente.cel == null"}
+			<p class="col-md-3">Não informado</p>
+			{else}
+			<p class="col-md-3">paciente.cel</p>
+			{/if}
+		</div>
+-->

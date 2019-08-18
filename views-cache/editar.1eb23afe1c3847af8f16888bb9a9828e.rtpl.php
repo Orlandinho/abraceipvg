@@ -1,4 +1,4 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="cadastro wrapper">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
 	<div class="container">
 		<p><h3>Atualizar Cadastro</h3></p>
 		<?php if( $error != '' ){ ?>
