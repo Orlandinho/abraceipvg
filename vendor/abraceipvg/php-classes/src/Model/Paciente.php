@@ -136,8 +136,12 @@ class Paciente extends Model {
 
 		$opcoes = [
 			"clinico"=>in_array("1 ", $data) ? 1 : null,
-			"dentista"=>in_array("2 ", $data) ? 2 : null,
-			"psicologo"=>in_array("3 ", $data) ? 3 : null
+			"oftalmo"=>in_array("2 ", $data) ? 2 : null,
+			"psicologo"=>in_array("3 ", $data) ? 3 : null,
+			"nutricionista"=>in_array("4 ", $data) ? 4 : null,
+			"massoterapia"=>in_array("5 ", $data) ? 5 : null,
+			"acupuntura"=>in_array("6 ", $data) ? 6 : null,
+			"ginecologista"=>in_array("7 ", $data) ? 7 : null
 		];
 		 
 		return $opcoes;
@@ -211,7 +215,15 @@ class Paciente extends Model {
 			"pages"=>ceil($resultTotal[0]["nrtotal"] / $itensPerPage)
 		];
 	}
-}
 
+	public static function getRelatorio()
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM vw_total_consultas");
+
+		return $results[0];
+	}
+}
 
 ?>

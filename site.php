@@ -143,6 +143,17 @@ $app->get('/detalhes/:idpaciente', function($idpaciente){
 	]);
 });
 
+$app->get('/relatorio', function(){
+
+	$relatorio = Paciente::getRelatorio();
+
+	$page = new Page();
+
+	$page->setTpl('relatorio', [
+		"relatorio"=>$relatorio
+	]);
+});
+
 $app->get('/pesquisa', function(){
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";

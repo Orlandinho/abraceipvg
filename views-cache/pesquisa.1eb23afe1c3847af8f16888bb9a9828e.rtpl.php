@@ -1,15 +1,35 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="row wrapper">
-	<div class="container">
-		<form action="/pesquisa">
-			<div class="input-group input-group-sm" style="width: 300px;">
-	            <input type="text" name="search" class="form-control" placeholder="Pesquisa" value="">
-	            <div class="input-group-btn">
-	                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-	            </div>
-	        </div>
-        </form>
+<?php if(!class_exists('Rain\Tpl')){exit;}?><body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-danger fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/cadastro">
+    			<img src="/res/img/abrace.png" width="40" height="40" class="d-inline-block align-top" alt="Abrace Logo">
+  			</a>
+	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+	    		<span class="navbar-toggler-icon"></span>
+	  		</button>
+	  		<div class="collapse navbar-collapse" id="navbarToggle">
+	    		<div class="navbar-nav">
+	      			<a class="nav-item nav-link" href="/cadastro">Cadastro</a>
+	      			<a class="nav-item nav-link active" href="/pesquisa">Pesquisa</a>
+	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
+	    		</div>
 
-        <h4 class="my-4 text-center">Lista de Pessoas Cadastradas</h4>
+	    		<form class="ml-4" action="/pesquisa">
+					<div class="input-group input-group-sm d-flex align-items-center" style="width: 300px;">
+	            	<input type="text" name="search" class="form-control" placeholder="Pesquisa" value="">
+	            		<div class="input-group-btn">
+	                		<button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+	            		</div>
+	        		</div>
+        		</form>
+	  		</div>
+  		</div>
+	</nav>
+	<div class="espaco"></div>
+<div class="row wrapper">
+	<div class="container">
+
+        <h3 class="my-4 text-center">Lista de Pessoas Cadastradas</h3>
 
         <?php if( $success != '' ){ ?>
     	<div class="alert alert-success alert-dismissible fade show" role="alert">

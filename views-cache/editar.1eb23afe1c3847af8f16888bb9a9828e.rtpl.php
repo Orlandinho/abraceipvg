@@ -1,4 +1,21 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="wrapper">
+<?php if(!class_exists('Rain\Tpl')){exit;}?><body>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-danger fixed-top">
+		<div class="container">
+			<a class="navbar-brand" href="/"> Imagem Abrace <!-- <img src="img/abrace.png" width="25px" alt="Abrace IPVG">Logo do Abrace --> </a>
+	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+	    		<span class="navbar-toggler-icon"></span>
+	  		</button>
+	  		<div class="collapse navbar-collapse" id="navbarToggle">
+	    		<div class="navbar-nav">
+	      			<a class="nav-item nav-link" href="/cadastro">Cadastro</a>
+	      			<a class="nav-item nav-link active" href="/pesquisa">Pesquisa</a>
+	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
+	    		</div>
+	  		</div>
+  		</div>
+	</nav>
+	<div class="espaco"></div>
+<div class="wrapper">
 	<div class="container">
 		<p><h3>Atualizar Cadastro</h3></p>
 		<?php if( $error != '' ){ ?>
@@ -61,8 +78,8 @@
 		    	</div>
 		  	</div>
 
-		  	<label>Especialidades</label>
-		  	<div class="border col-md-4 col-xs-12">
+		  	<label>Especialidades</label><span class="text-danger"> *</span>
+		  	<div class="border col-md-11">
 		  		<div class="row my-2">
 			    	<div class="custom-control custom-checkbox ml-4 mr-3">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["clinico"] == 1 ){ ?> checked <?php } ?> name="opcoes[]" id="clinico" value="1">
@@ -70,13 +87,33 @@
 					</div>
 
 					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["dentista"] == 2 ){ ?> checked <?php } ?> name="opcoes[]" id="dentista" value="2">
-						<label class="custom-control-label" for="dentista">Dentista</label>
+						<input type="checkbox" class="custom-control-input" <?php if( $check["oftalmo"] == 2 ){ ?> checked <?php } ?> name="opcoes[]" id="dentista" value="2">
+						<label class="custom-control-label" for="dentista">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
+					<div class="custom-control custom-checkbox mr-3">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["psicologo"] == 3 ){ ?> checked <?php } ?> name="opcoes[]" id="psicologo" value="3">
 						<label class="custom-control-label" for="psicologo">Psicólogo</label>
+					</div>
+
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["nutricionista"] == 4 ){ ?> checked <?php } ?> name="opcoes[]" id="nutricionista" value="4">
+						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
+					</div>
+
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["massoterapia"] == 5 ){ ?> checked <?php } ?> name="opcoes[]" id="massoterapia" value="5">
+						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
+					</div>
+
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["acupuntura"] == 6 ){ ?> checked <?php } ?> name="opcoes[]" id="acupuntura" value="6">
+						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
+					</div>
+
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologista"] == 7 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologista" value="7">
+						<label class="custom-control-label" for="ginecologista">Ginecologista</label>
 					</div>
 				</div>
 			</div>

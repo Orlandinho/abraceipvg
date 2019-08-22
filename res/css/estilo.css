@@ -9,6 +9,10 @@ a {
 	color: #fff
 }
 
+.relatorio label p {
+  font-size: 30px;
+}
+
 .wrapper{
 min-height: 100%;
 position: relative;
@@ -28,7 +32,7 @@ position: relative;
 }
 
 .espaco {
-	margin-bottom: 80px;
+	margin-bottom: 100px;
 }
 
 /* Mudar a cor dos checkbox Bootstrap */
@@ -51,6 +55,8 @@ position: relative;
   background-color: #dc3545;
   border-color: #dc3545;
 }
+
+/* Mudar a cor dos links da paginação */
 
 .page-link {
   position: relative;

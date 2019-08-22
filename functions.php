@@ -17,11 +17,27 @@ function pegarEspecialidade($numero)
 			break;
 		
 		case 2:
-			return "Dentista";
+			return "Oftalmologista";
 			break;
 
 		case 3:
 			return "Psicólogo";
+			break;
+
+		case 4:
+			return "Nutricionista";
+			break;
+
+		case 5:
+			return "Massoterapia";
+			break;
+
+		case 6:
+			return "Acupuntura";
+			break;
+
+		case 7:
+			return "Ginecologista";
 			break;
 	}
 }
