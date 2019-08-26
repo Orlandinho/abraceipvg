@@ -4,10 +4,52 @@ use \Slim\Slim;
 use \Abrace\Page;
 use \Abrace\Model\Paciente;
 use \Abrace\Mailer;
+use \Abrace\Model\Colaboradores;
 
 $app = new Slim();
 
+$app->get('/login', function(){
+
+	$page = new Page([
+		'header'=>false,
+		'footer'=>false
+	]);
+
+	$page->setTpl('login', [
+		'error'=>''
+	]);
+});
+
+$app->post('/login', function(){
+
+	$results = Colaboradores::login($_POST['login'], $_POST['senha']);
+
+	if ($results->getespecialidade() == null){
+
+		header("Location: /cadastro");
+		exit;
+
+	} else {
+
+		$especialidade = $results->getespecialidade();
+
+		header("Location: /paciente/$especialidade");
+		exit;
+	}
+	
+});
+
+$app->get('/logout', function(){
+
+	Colaboradores::logout();
+
+	header("Location: /login");
+	exit;
+});
+
 $app->get('/cadastro', function() {
+
+	Colaboradores::verifyLogin();
 
 	$page = new Page;
     
@@ -19,6 +61,8 @@ $app->get('/cadastro', function() {
 });
 
 $app->post('/cadastro', function(){
+
+	Colaboradores::verifyLogin();
 
 	if (!isset($_POST['nome']) || $_POST['nome'] == ''){
 
@@ -62,6 +106,8 @@ $app->post('/cadastro', function(){
 
 $app->get('/pesquisa/:idpaciente/delete', function($idpaciente){
 
+	Colaboradores::verifyLogin();
+
 	$paciente = new Paciente();
 
 	$paciente->get((int)$idpaciente);
@@ -73,6 +119,8 @@ $app->get('/pesquisa/:idpaciente/delete', function($idpaciente){
 });
 
 $app->get('/pesquisa/:idpaciente', function($idpaciente){
+
+	Colaboradores::verifyLogin();
 
 	$paciente = new Paciente();
 
@@ -90,6 +138,8 @@ $app->get('/pesquisa/:idpaciente', function($idpaciente){
 });
 
 $app->post('/pesquisa/:idpaciente', function($idpaciente){
+
+	Colaboradores::verifyLogin();
 
 	if (!isset($_POST['nome']) || $_POST['nome'] == ''){
 
@@ -129,6 +179,8 @@ $app->post('/pesquisa/:idpaciente', function($idpaciente){
 
 $app->get('/detalhes/:idpaciente', function($idpaciente){
 
+	Colaboradores::verifyLogin();
+
 	$page = new Page();
 
 	$paciente = new Paciente();
@@ -145,6 +197,8 @@ $app->get('/detalhes/:idpaciente', function($idpaciente){
 
 $app->get('/relatorio', function(){
 
+	Colaboradores::verifyLogin();
+
 	$relatorio = Paciente::getRelatorio();
 
 	$page = new Page();
@@ -155,6 +209,8 @@ $app->get('/relatorio', function(){
 });
 
 $app->get('/pesquisa', function(){
+
+	Colaboradores::verifyLogin();
 
 	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
 	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;

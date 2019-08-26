@@ -13,6 +13,9 @@
 	      			<a class="nav-item nav-link" href="/pesquisa">Pesquisa</a>
 	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
 	    		</div>
+	    		<div class="ml-4">
+	    			<a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+	    		</div>
 	  		</div>
   		</div>
 	</nav>
@@ -90,9 +93,9 @@
 		  	</div>
 
 		  	<label>Especialidades</label><span class="text-danger"> *</span>
-		  	<div class="border col-md-11">
+		  	<div class="border col-md-10">
 		  		<div class="row my-2">
-			    	<div class="custom-control custom-checkbox ml-4 mr-3">
+			    	<div class="custom-control custom-checkbox ml-2 mr-3">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
@@ -122,7 +125,7 @@
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="ginecologia" value="7">
 						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
 					</div>

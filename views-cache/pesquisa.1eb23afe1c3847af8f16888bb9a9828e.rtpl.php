@@ -29,7 +29,7 @@
 <div class="row wrapper">
 	<div class="container">
 
-        <h3 class="my-4 text-center">Lista de Pessoas Cadastradas</h3>
+        <h3 class="my-5 text-center">Lista de Pessoas Cadastradas</h3>
 
         <?php if( $success != '' ){ ?>
     	<div class="alert alert-success alert-dismissible fade show" role="alert">
