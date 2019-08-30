@@ -42,4 +42,12 @@ function pegarEspecialidade($numero)
 	}
 }
 
+function casaDecimal($unidade)
+{
+
+	$resultado = str_replace(".", ",", $unidade);
+
+	return $resultado;
+}
+
 ?>

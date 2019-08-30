@@ -13,7 +13,6 @@
 	      			<a class="nav-item nav-link active" href="/pesquisa">Pesquisa</a>
 	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
 	    		</div>
-
 	    		<form class="ml-4" action="/pesquisa">
 					<div class="input-group input-group-sm d-flex align-items-center" style="width: 300px;">
 	            	<input type="text" name="search" class="form-control" placeholder="Pesquisa" value="">
@@ -22,6 +21,9 @@
 	            		</div>
 	        		</div>
         		</form>
+                <div class="ml-4">
+                    <a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+                </div>
 	  		</div>
   		</div>
 	</nav>

@@ -13,6 +13,9 @@
 	      			<a class="nav-item nav-link" href="/pesquisa">Pesquisa</a>
 	      			<a class="nav-item nav-link active" href="/relatorio">Relatório</a>
 	    		</div>
+	    		<div class="ml-4">
+	    			<a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+	    		</div>
 	  		</div>
   		</div>
 	</nav>
@@ -21,7 +24,7 @@
 	<div class="container">
 
 		<div class="row mb-5">
-			<h2 class="text-center">Dados Totais</h2>
+			<h1 class="text-center">Dados Totais</h1>
 		</div>
 
 		<div class="row mb-3">

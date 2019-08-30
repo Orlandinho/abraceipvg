@@ -11,6 +11,9 @@
 	      			<a class="nav-item nav-link active" href="/pesquisa">Pesquisa</a>
 	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
 	    		</div>
+	    		<div class="ml-4">
+	    			<a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+	    		</div>
 	  		</div>
   		</div>
 	</nav>
@@ -78,24 +81,78 @@
 		    	</div>
 		  	</div>
 
-		  	<label>Especialidades</label><span class="text-danger"> *</span>
-		  	<div class="border col-md-11">
-		  		<div class="row my-2">
-			    	<div class="custom-control custom-checkbox ml-4 mr-3">
+		  	<div class="mb-3">
+		  		<p><h3>Dados da Triagem</h3></p>
+			</div>
+
+  			<div class="form-group row">
+	      		<label class="ml-3" for="idade">Idade</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars( $paciente["idade"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="idade" name="idade">
+	      		</div>
+
+	      		<label class="ml-3" for="altura">Altura</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo casaDecimal($paciente["altura"]); ?>" id="altura" name="altura">
+	      		</div>
+
+	      		<label class="ml-3" for="peso">Peso</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo casaDecimal($paciente["peso"]); ?>" id="peso" name="peso">
+	      		</div>
+
+	      		<label class="ml-3" for="temperatura">Temperatura</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo casaDecimal($paciente["temperatura"]); ?>" id="temperatura" name="temperatura">
+	      		</div>
+	      	</div>
+
+	      	<div class="form-group row">
+	      		<label class="ml-3" for="pa">P.A.</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars( $paciente["pa"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="pa" name="pa">
+	      		</div>
+
+	      		<label class="ml-3" for="glicemia">Glicemia</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars( $paciente["glicemia"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="glicemia" name="glicemia">
+	      		</div>
+
+	      		<label class="ml-3" for="respiracao">Respiração</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars( $paciente["respiracao"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="respiracao" name="respiracao">
+	      		</div>
+
+	      		<label class="ml-3" for="pulso">Pulso</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" value="<?php echo htmlspecialchars( $paciente["pulso"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="pulso" name="pulso">
+	      		</div>
+	      	</div>
+
+	      	<div class="row col-md-7">
+				<textarea class="form-control" rows="2" name="obs" placeholder="Observações"><?php echo corrigirNome($paciente["obs"]); ?></textarea>
+			</div>
+
+		  	<label class="my-3"><b>Encaminhamento</b></label><span class="text-danger"> *</span>
+		  	<div class="border col-sm-5">
+		  		<div class="row my-2 justify-content-center">
+			    	<div class="custom-control custom-checkbox mr-3">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["clinico"] == 1 ){ ?> checked <?php } ?> name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
 
 					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["oftalmo"] == 2 ){ ?> checked <?php } ?> name="opcoes[]" id="dentista" value="2">
-						<label class="custom-control-label" for="dentista">Oftalmologista</label>
+						<input type="checkbox" class="custom-control-input" <?php if( $check["oftalmo"] == 2 ){ ?> checked <?php } ?> name="opcoes[]" id="oftalmo" value="2">
+						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["psicologo"] == 3 ){ ?> checked <?php } ?> name="opcoes[]" id="psicologo" value="3">
 						<label class="custom-control-label" for="psicologo">Psicólogo</label>
 					</div>
+				</div>
 
+				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox mr-3">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["nutricionista"] == 4 ){ ?> checked <?php } ?> name="opcoes[]" id="nutricionista" value="4">
 						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
@@ -106,20 +163,22 @@
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["acupuntura"] == 6 ){ ?> checked <?php } ?> name="opcoes[]" id="acupuntura" value="6">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
+				</div>
 
-					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologista"] == 7 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologista" value="7">
-						<label class="custom-control-label" for="ginecologista">Ginecologista</label>
+				<div class="row my-2 justify-content-center">
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologia"] == 7 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologia" value="7">
+						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
 					</div>
 				</div>
 			</div>
 
 			<div class="clearfix">
-				<button type="submit" class="btn btn-outline-danger mt-3 float-right">Atualizar</button>
+				<button type="submit" class="btn btn-outline-danger my-4 float-right">Atualizar</button>
 			</div>
 		</form>
 	</div>

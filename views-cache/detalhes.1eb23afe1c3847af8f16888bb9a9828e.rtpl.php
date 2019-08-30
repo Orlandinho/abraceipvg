@@ -1,7 +1,9 @@
 <?php if(!class_exists('Rain\Tpl')){exit;}?><body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-danger fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="/"> Imagem Abrace <!-- <img src="img/abrace.png" width="25px" alt="Abrace IPVG">Logo do Abrace --> </a>
+			<a class="navbar-brand" href="/cadastro">
+    			<img src="/res/img/abrace.png" width="40" height="40" class="d-inline-block align-top" alt="Abrace Logo">
+  			</a>
 	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
 	    		<span class="navbar-toggler-icon"></span>
 	  		</button>
@@ -11,6 +13,9 @@
 	      			<a class="nav-item nav-link active" href="/pesquisa">Pesquisa</a>
 	      			<a class="nav-item nav-link" href="/relatorio">Relatório</a>
 	    		</div>
+	    		<div class="ml-4">
+	    			<a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+	    		</div>
 	  		</div>
   		</div>
 	</nav>
@@ -18,7 +23,7 @@
 <div class="wrapper">
 	<div class="container">
 
-		<div class="row mb-5 mx-auto">
+		<div class="row mb-4 mx-auto">
 			<h2>Dados Cadastrados</h2>
 		</div>
 
@@ -69,14 +74,83 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-3"><b>Consulta(s) Cadastrada(s)</b></label>
+			<label class="col-md-1"><b>Idade</b></label>
+			<?php if( $paciente["idade"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo htmlspecialchars( $paciente["idade"], ENT_COMPAT, 'UTF-8', FALSE ); ?> anos</p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Altura</b></label>
+			<?php if( $paciente["altura"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo casaDecimal($paciente["altura"]); ?>m</p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Peso</b></label>
+			<?php if( $paciente["peso"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo casaDecimal($paciente["peso"]); ?> Kg</p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Temp.</b></label>
+			<?php if( $paciente["temperatura"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo casaDecimal($paciente["temperatura"]); ?>°</p>
+			<?php } ?>
 		</div>
 
 		<div class="row">
-			<span class="ml-3"><p>Atendido (<i class="fa fa-check"></i>) / Não Atendido (<i class="fa fa-times"></i>)</p></span>
+			<label class="col-md-1"><b>P.A.</b></label>
+			<?php if( $paciente["pa"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo htmlspecialchars( $paciente["pa"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Glicemia</b></label>
+			<?php if( $paciente["glicemia"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo htmlspecialchars( $paciente["glicemia"], ENT_COMPAT, 'UTF-8', FALSE ); ?> mg/dl</p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Respiração</b></label>
+			<?php if( $paciente["respiracao"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo htmlspecialchars( $paciente["respiracao"], ENT_COMPAT, 'UTF-8', FALSE ); ?> rpm</p>
+			<?php } ?>
+
+			<label class="col-md-1"><b>Pulso</b></label>
+			<?php if( $paciente["pulso"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-2"><?php echo htmlspecialchars( $paciente["pulso"], ENT_COMPAT, 'UTF-8', FALSE ); ?> bpm</p>
+			<?php } ?>
 		</div>
 
-		<div class="col-md-4 ml-1 mt-2 row border border-secondary rounded-lg">
+		<div class="row">
+			<label class="col-md-1"><b>Obs</b></label>
+			<?php if( $paciente["obs"] == null ){ ?>
+			<p class="col-md-2">Não informado</p>
+			<?php }else{ ?>
+			<p class="col-md-11"><?php echo corrigirNome($paciente["obs"]); ?></p>
+			<?php } ?>
+		</div>
+
+		<div class="row mt-3">
+			<label class="col-md-6"><h3>Consulta(s) Cadastrada(s)</h3></label>
+		</div>
+
+		<div class="row">
+			<span class="ml-3"><p>Atendido <i class="fa fa-check"></i> / Não Atendido <i class="fa fa-times"></i></p></span>
+		</div>
+
+		<div class="col-md-4 ml-1 mt-2 mb-5 row border border-secondary rounded-lg">
 			<table class="table table-sm borderless">
 				<th>Especialidade</th>
 				<th>Atendido</th>

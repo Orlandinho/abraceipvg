@@ -22,7 +22,7 @@
 	<div class="espaco"></div>
 <div class="cadastro wrapper">
 	<div class="container">
-		<p><h3>Cadastro</h3></p>
+		<p><h3>Dados Pessoais</h3></p>
 		<?php if( $error != '' ){ ?>
     	<div class="alert alert-danger alert-dismissible fade show" role="alert">
   			<p><?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
@@ -92,10 +92,62 @@
 		    	</div>
 		  	</div>
 
-		  	<label>Especialidades</label><span class="text-danger"> *</span>
-		  	<div class="border col-md-10">
-		  		<div class="row my-2">
-			    	<div class="custom-control custom-checkbox ml-2 mr-3">
+		  	<div class="mb-3">
+		  		<p><h3>Dados da Triagem</h3></p>
+			</div>
+
+  			<div class="form-group row">
+	      		<label class="ml-3" for="idade">Idade</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="idade" name="idade">
+	      		</div>
+
+	      		<label class="ml-3" for="altura">Altura</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="altura" name="altura">
+	      		</div>
+
+	      		<label class="ml-3" for="peso">Peso</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="peso" name="peso">
+	      		</div>
+
+	      		<label class="ml-3" for="temperatura">Temperatura</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="temperatura" name="temperatura">
+	      		</div>
+	      	</div>
+
+	      	<div class="form-group row">
+	      		<label class="ml-3" for="pa">P.A.</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="pa" name="pa">
+	      		</div>
+
+	      		<label class="ml-3" for="glicemia">Glicemia</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="glicemia" name="glicemia">
+	      		</div>
+
+	      		<label class="ml-3" for="respiracao">Respiração</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="respiracao" name="respiracao">
+	      		</div>
+
+	      		<label class="ml-3" for="pulso">Pulso</label>
+	      		<div class="col-md-1">
+	      			<input type="text" class="form-control form-control-sm" id="pulso" name="pulso">
+	      		</div>
+	      	</div>
+
+	      	<div class="row col-md-7">
+				<textarea class="form-control" rows="2" name="obs" placeholder="Observações"></textarea>
+			</div>
+
+		  	<label class="my-3"><b>Encaminhamento</b></label><span class="text-danger"> *</span>
+		  	<div class="border col-sm-5">
+		  		<div class="row my-2 justify-content-center">
+			    	<div class="custom-control custom-checkbox mr-3">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
@@ -105,11 +157,13 @@
 						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="psicologo" value="3">
 						<label class="custom-control-label" for="psicologo">Psicólogo</label>
 					</div>
+				</div>
 
+				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox mr-3">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="nutricionista" value="4">
 						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
@@ -120,11 +174,13 @@
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="acupuntura" value="6">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
+				</div>
 
+				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="ginecologia" value="7">
 						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
