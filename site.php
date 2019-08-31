@@ -33,10 +33,57 @@ $app->post('/login', function(){
 
 		$especialidade = $results->getespecialidade();
 
-		header("Location: /paciente/$especialidade");
+		header("Location: /medico/$especialidade");
 		exit;
 	}
 	
+});
+
+$app->get('/medico/:especialidade/paciente/:idpaciente', function($especialidade, $idpaciente){
+
+	if (Paciente::endConsult((int)$especialidade, (int)$idpaciente)){
+
+		Paciente::setSuccess("Consulta finalizada!");
+		header("Location: /medico/$especialidade");
+		exit;
+
+	} else {
+
+		Paciente::setError("Não foi possível finalizar a consulta");
+		header("Location: /medico/$especialidade");
+		exit;
+	}
+});
+
+$app->get('/medico/:especialidade', function($especialidade){
+
+	$paciente = new Paciente();
+
+	$page = new Page([
+		'header'=>false,
+		'footer'=>false
+	]);
+
+	$page->setTpl('medico',[
+		"pacientes"=>Paciente::getPacients($especialidade),
+		"success"=>Paciente::getSuccess(),
+		"error"=>Paciente::getError()
+	]);
+
+});
+
+$app->get('/detalhes-medico/:idpaciente', function($idpaciente){
+
+	$paciente = Paciente::getDetails($idpaciente);
+
+	$page = new Page([
+		'header'=>false,
+		'footer'=>false
+	]);
+
+	$page->setTpl('detalhes-medico',[
+		"paciente"=>$paciente
+	]);
 });
 
 $app->get('/logout', function(){

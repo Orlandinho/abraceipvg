@@ -1,6 +1,7 @@
 <?php
 
 use \Abrace\Model\Paciente;
+use \Abrace\Model\Colaboradores;
 
 function corrigirNome($nome)
 {
@@ -48,6 +49,14 @@ function casaDecimal($unidade)
 	$resultado = str_replace(".", ",", $unidade);
 
 	return $resultado;
+}
+
+function getDoctorName()
+{
+
+	$colab = Colaboradores::getFromSession();
+
+	return $colab->getnome();
 }
 
 ?>

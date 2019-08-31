@@ -62,6 +62,18 @@ class Colaboradores extends Model {
 	{
 		$_SESSION[Colaboradores::SESSION] = null;
 	}
+
+	public static function getFromSession()
+	{
+		$colab = new Colaboradores();
+
+		if (isset($_SESSION[Colaboradores::SESSION]) && (int)$_SESSION[Colaboradores::SESSION]['idcolaborador'] > 0){
+
+			$colab->setData($_SESSION[Colaboradores::SESSION]);
+		}
+
+		return $colab;
+	}
 }
 
 ?>

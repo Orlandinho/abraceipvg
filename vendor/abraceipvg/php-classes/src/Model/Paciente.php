@@ -234,6 +234,16 @@ class Paciente extends Model {
 		];
 	}
 
+	public static function getPacients($especialidade)
+	{
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_pacientes a INNER JOIN tb_consultas b USING(idpaciente) WHERE b.consulta = :especialidade AND b.atendido = 0 ORDER BY a.idpaciente ASC",[
+			":especialidade"=>$especialidade
+		]);
+	}
+
 	public static function getRelatorio()
 	{
 		$sql = new Sql();
@@ -241,6 +251,29 @@ class Paciente extends Model {
 		$results = $sql->select("SELECT * FROM vw_total_consultas");
 
 		return $results[0];
+	}
+
+	public static function getDetails($idpaciente)
+	{
+
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_pacientes a INNER JOIN tb_detalhes b USING(idpaciente) WHERE b.idpaciente = :idpaciente", [
+			":idpaciente"=>$idpaciente
+		]);
+
+		return $results[0];
+	}
+
+	public static function endConsult($especialidade, $idpaciente)
+	{
+
+		$sql = new Sql();
+
+		$sql->query("UPDATE tb_consultas SET atendido = 1 WHERE idpaciente = :idpaciente AND consulta = :especialidade",[
+			":idpaciente"=>$idpaciente,
+			":especialidade"=>$especialidade
+		]);
 	}
 }
 
