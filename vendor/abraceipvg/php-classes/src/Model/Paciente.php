@@ -155,11 +155,10 @@ class Paciente extends Model {
 		$opcoes = [
 			"clinico"=>in_array("1 ", $data) ? 1 : null,
 			"oftalmo"=>in_array("2 ", $data) ? 2 : null,
-			"psicologo"=>in_array("3 ", $data) ? 3 : null,
-			"nutricionista"=>in_array("4 ", $data) ? 4 : null,
-			"massoterapia"=>in_array("5 ", $data) ? 5 : null,
-			"acupuntura"=>in_array("6 ", $data) ? 6 : null,
-			"ginecologia"=>in_array("7 ", $data) ? 7 : null
+			"nutricionista"=>in_array("3 ", $data) ? 3 : null,
+			"massoterapia"=>in_array("4 ", $data) ? 4 : null,
+			"acupuntura"=>in_array("5 ", $data) ? 5 : null,
+			"ginecologia"=>in_array("6 ", $data) ? 6 : null
 		];
 		 
 		return $opcoes;
@@ -274,6 +273,8 @@ class Paciente extends Model {
 			":idpaciente"=>$idpaciente,
 			":especialidade"=>$especialidade
 		]);
+
+		return true;
 	}
 }
 

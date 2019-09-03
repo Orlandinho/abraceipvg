@@ -12,23 +12,33 @@
 	</head>
 
     <body class="text-center">
-    	<?php if( $error != '' ){ ?>
-    	<div class="alert alert-danger alert-dismissible fade show" role="alert">
-  			<p><?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
-  			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    		<span aria-hidden="true">&times;</span>
-  			</button>
-		</div>
-		<?php } ?>
-    	<form method="post" action="/login" class="form-signin">
-  			<img class="mb-4" src="/res/img/abrace.png" alt="" width="180" height="180">
-  			<h1 class="h3 mb-4 font-weight-normal">Login Abrace IPVG</h1>
-  			<label for="inputLogin" class="sr-only"></label>
-  			<input type="text" id="inputLogin" class="form-control mb-3" placeholder="Login" name="login" required autofocus>
-  			<label for="inputPassword" class="sr-only">Senha</label>
-  			<input type="password" id="inputPassword" class="form-control mb-3" placeholder="Senha" name="senha" required>
-  			
-  			<button class="btn btn-lg btn-outline-danger btn-block" type="submit">Entrar</button>
-		</form>
+
+      <div class="form-signin">
+
+      	<form method="post" action="/login">
+    			<img class="mb-4" src="/res/img/abrace.png" alt="" width="180" height="180">
+    			<h1 class="h3 mb-4 font-weight-normal">Login Abrace IPVG</h1>
+
+          <?php if( $error != '' ){ ?>
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <?php echo htmlspecialchars( $error, ENT_COMPAT, 'UTF-8', FALSE ); ?>
+            <button type="button" class="close" data-dismiss="alert" aria-label="close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <?php } ?>
+
+    			<label for="inputLogin" class="sr-only"></label>
+    			<input type="text" id="inputLogin" class="form-control mb-3" placeholder="Login" name="login" required autofocus>
+    			<label for="inputPassword" class="sr-only">Senha</label>
+    			<input type="password" id="inputPassword" class="form-control mb-3" placeholder="Senha" name="senha" required>
+    			
+    			<button class="btn btn-lg btn-outline-danger btn-block" type="submit">Entrar</button>
+  		  </form>
+      </div>  
+
+      <script src="/res/js/jquery.js"></script>
+      <script src="/res/js/bootstrap.min.js"></script>
+      <script src="/res/js/main.js"></script>
 	</body>
 </html>

@@ -43,8 +43,8 @@
 
 		<div class="clearfix">
 			<div class="float-right">
-				<span class="text-danger">* </span><small>Campo obrigatório</small>
-				<span class="text-danger ml-2">** </span><small>É necessário pelo menos um contato</small>
+				<span class="text-danger">* </span><small class="text-muted">Campo obrigatório</small>
+				<span class="text-danger ml-2">** </span><small class="text-muted">Digite o cep e troque o campo para pesquisar o endereço</small>
 			</div>
 		</div>
 		<form method="post" action="/cadastro">
@@ -71,8 +71,8 @@
 		    	</div>
 
 		    	<div class="form-group col-md-2">
-		      		<label for="inputZip">Cep</label>
-		      		<input type="text" class="form-control" name="cep" id="inputZip" placeholder="01234-000">
+		      		<label for="inputZip">Cep</label><span class="text-danger"> **</span>
+		      		<input type="text" class="form-control" name="cep" id="inputZip" placeholder="01234000">
 		    	</div>
 		  	</div>
 
@@ -82,18 +82,19 @@
 		      		<input type="email" class="form-control" id="inputEmail4" name="email">
 		    	</div>
 		    	<div class="form-group col-md-3">
-		      		<label for="inputTel">Telefone</label><span class="text-danger"> **</span>
-		      		<input type="text" class="form-control" id="inputTel" name="tel" placeholder="1234-5678">
+		      		<label for="inputTel">Telefone</label>
+		      		<input type="text" class="form-control" id="inputTel" name="tel" placeholder="12345678">
 		    	</div>
 
 		    	<div class="form-group col-md-3">
-		      		<label for="inputCel">Celular</label><span class="text-danger"> **</span>
-		      		<input type="text" class="form-control" id="inputCel" name="cel" placeholder="91234-5678">
+		      		<label for="inputCel">Celular</label>
+		      		<input type="text" class="form-control" id="inputCel" name="cel" placeholder="912345678">
 		    	</div>
 		  	</div>
 
-		  	<div class="mb-3">
-		  		<p><h3>Dados da Triagem</h3></p>
+		  	<div class="my-3">
+		  		<h3>Dados da Triagem</h3>
+		  		<small class="form-text text-muted">Apenas números. Use decimal quando necessário, exceto P.A. Ex: 120x80 (12 por 8)</small>
 			</div>
 
   			<div class="form-group row">
@@ -158,32 +159,25 @@
 					</div>
 
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="psicologo" value="3">
-						<label class="custom-control-label" for="psicologo">Psicólogo</label>
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="nutricionista" value="3">
+						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
 					</div>
 				</div>
 
 				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="nutricionista" value="4">
-						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
-					</div>
-
-					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="massoterapia" value="5">
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="massoterapia" value="4">
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="acupuntura" value="6">
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="acupuntura" value="5">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
-				</div>
 
-				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="ginecologia" value="7">
-						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="ginecologista" value="6">
+						<label class="custom-control-label" for="ginecologista">Ginecologista</label>
 					</div>
 				</div>
 			</div>

@@ -146,34 +146,29 @@
 						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["psicologo"] == 3 ){ ?> checked <?php } ?> name="opcoes[]" id="psicologo" value="3">
-						<label class="custom-control-label" for="psicologo">Psicólogo</label>
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["nutricionista"] == 3 ){ ?> checked <?php } ?> name="opcoes[]" id="nutricionista" value="3">
+						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
 					</div>
 				</div>
 
 				<div class="row my-2 justify-content-center">
-					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["nutricionista"] == 4 ){ ?> checked <?php } ?> name="opcoes[]" id="nutricionista" value="4">
-						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
-					</div>
 
 					<div class="custom-control custom-checkbox mr-3">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["massoterapia"] == 5 ){ ?> checked <?php } ?> name="opcoes[]" id="massoterapia" value="5">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["massoterapia"] == 4 ){ ?> checked <?php } ?> name="opcoes[]" id="massoterapia" value="4">
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["acupuntura"] == 6 ){ ?> checked <?php } ?> name="opcoes[]" id="acupuntura" value="6">
+					<div class="custom-control custom-checkbox mr-3">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["acupuntura"] == 5 ){ ?> checked <?php } ?> name="opcoes[]" id="acupuntura" value="5">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
-				</div>
 
-				<div class="row my-2 justify-content-center">
 					<div class="custom-control custom-checkbox">
-						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologia"] == 7 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologia" value="7">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologia"] == 6 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologia" value="6">
 						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
 					</div>
+
 				</div>
 			</div>
 

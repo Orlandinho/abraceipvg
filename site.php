@@ -16,27 +16,35 @@ $app->get('/login', function(){
 	]);
 
 	$page->setTpl('login', [
-		'error'=>''
+		'error'=>Paciente::getError()
 	]);
 });
 
 $app->post('/login', function(){
 
-	$results = Colaboradores::login($_POST['login'], $_POST['senha']);
+	try {
 
-	if ($results->getespecialidade() == null){
+		Colaboradores::login($_POST['login'], $_POST['senha']);
+		
+	} catch (Exception $e) {
+
+		Paciente::setError($e->getMessage());
+	}
+
+		$results = Colaboradores::getFromSession();
+
+		if ($results->getespecialidade() == null){
 
 		header("Location: /cadastro");
 		exit;
 
-	} else {
+		} else {
 
 		$especialidade = $results->getespecialidade();
 
 		header("Location: /medico/$especialidade");
 		exit;
 	}
-	
 });
 
 $app->get('/medico/:especialidade/paciente/:idpaciente', function($especialidade, $idpaciente){

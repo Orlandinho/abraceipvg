@@ -54,8 +54,8 @@
 		</div>
 
 		<div class="row">
-			<label class="col-md-3"><b>Consultas com o Psicólogo:</b></label>
-			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_psicologo"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+			<label class="col-md-3"><b>Consultas com a Ginecologista:</b></label>
+			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_ginecologista"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 
 			<label class="col-md-3"><b>Consultas com o Nutricionista:</b></label>
 			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_nutricionista"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
@@ -68,11 +68,5 @@
 			<label class="col-md-3"><b>Consultas com o Acupuntor:</b></label>
 			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_acupuntura"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 		</div>
-
-		<div class="row border-bottom border-danger">
-			<label class="col-md-3"><b>Consultas com a Ginecologista:</b></label>
-			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_ginecologista"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
-		</div>
-
 	</div>
 </div>
