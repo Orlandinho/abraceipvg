@@ -67,7 +67,7 @@ class Paciente extends Model {
 	{
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_save_paciente_consultas(:nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :idade, :altura, :peso, :pa, :glicemia, :temperatura, :respiracao, :pulso, :obs, :consulta)", [
+		$results = $sql->select("CALL sp_save_paciente_consultas(:nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :consulta, :permissao, :membro)", [
 			":nome"=>utf8_decode($this->getnome()),
 			":endereco"=>utf8_decode($this->getendereco()),
 			":bairro"=>utf8_decode($this->getbairro()),
@@ -76,16 +76,9 @@ class Paciente extends Model {
 			":email"=>$this->getemail(),
 			":tel"=>$this->gettel(),
 			":cel"=>$this->getcel(),
-			":idade"=>$this->getidade(),
-			":altura"=>str_replace(",", ".", $this->getaltura()),
-			":peso"=>str_replace(",", ".", $this->getpeso()),
-			":pa"=>$this->getpa(),
-			":glicemia"=>$this->getglicemia(),
-			":temperatura"=>str_replace(",", ".", $this->gettemperatura()),
-			":respiracao"=>$this->getrespiracao(),
-			":pulso"=>$this->getpulso(),
-			":obs"=>utf8_decode($this->getobs()),
-			":consulta"=>$this->getopcoes()
+			":consulta"=>$this->getopcoes(),
+			":permissao"=>$this->getpermissao(),
+			":membro"=>$this->getmembro()
 		]);
 
 		$this->setData($results);
@@ -95,7 +88,7 @@ class Paciente extends Model {
 	{
 		$sql = new Sql();
 
-		$results = $sql->select("CALL sp_update_paciente(:idpaciente, :nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :idade, :altura, :peso, :pa, :glicemia, :temperatura, :respiracao, :pulso, :obs, :consulta)", [
+		$results = $sql->select("CALL sp_update_paciente(:idpaciente, :nome, :endereco, :bairro, :cep, :cidade, :email, :tel, :cel, :idade, :altura, :peso, :pa, :glicemia, :temperatura, :respiracao, :pulso, :obs, :consulta, :permissao, :membro)", [
 			":idpaciente"=>$this->getidpaciente(),
 			":nome"=>utf8_decode($this->getnome()),
 			":endereco"=>utf8_decode($this->getendereco()),
@@ -114,7 +107,9 @@ class Paciente extends Model {
 			":respiracao"=>$this->getrespiracao(),
 			":pulso"=>$this->getpulso(),
 			":obs"=>utf8_decode($this->getobs()),
-			":consulta"=>$this->getopcoes()
+			":consulta"=>$this->getopcoes(),
+			":permissao"=>$this->getpermissao(),
+			":membro"=>$this->getmembro()
 		]);
 
 		$this->setData($results);
@@ -158,7 +153,9 @@ class Paciente extends Model {
 			"nutricionista"=>in_array("3 ", $data) ? 3 : null,
 			"massoterapia"=>in_array("4 ", $data) ? 4 : null,
 			"acupuntura"=>in_array("5 ", $data) ? 5 : null,
-			"ginecologia"=>in_array("6 ", $data) ? 6 : null
+			"ginecologia"=>in_array("6 ", $data) ? 6 : null,
+			"paglicemia"=>in_array("7 ", $data) ? 7 : null,
+			"triagem"=>in_array("8 ", $data) ? 8 : null
 		];
 		 
 		return $opcoes;
@@ -248,6 +245,15 @@ class Paciente extends Model {
 		$sql = new Sql();
 
 		$results = $sql->select("SELECT * FROM vw_total_consultas");
+
+		return $results[0];
+	}
+
+	public static function getTotalMembros()
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM vw_membros");
 
 		return $results[0];
 	}

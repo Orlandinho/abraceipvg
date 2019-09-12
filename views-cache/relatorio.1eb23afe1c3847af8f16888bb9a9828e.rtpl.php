@@ -31,15 +31,22 @@
 			<h4>Total Pacientes</h4>
 		</div>
 
-		<div class="row relatorio border-bottom border-danger">
-			<label class="col-md-2"><b>Total de Pacientes:</b></label>
-			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_pacientes"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+		<div class="border-bottom border-danger">
+			<div class="row">
+				<label class="col-md-3"><b>Total de Pacientes:</b></label>
+				<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_pacientes"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 
-			<label class="col-md-2"><b>Total de Consultas:</b></label>
-			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_consultas"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+				<label class="col-md-3"><b>Total de Consultas:</b></label>
+				<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_consultas"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+			</div>
 
-			<label class="col-md-2"><b>Consultas Atendidas:</b></label>
-			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_atendido"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+			<div class="row">
+				<label class="col-md-3"><b>Membros da Igreja:</b></label>
+				<p class="col-md-2"><?php echo htmlspecialchars( $membros["total_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+
+				<label class="col-md-3"><b>Não Membros:</b></label>
+				<p class="col-md-2"><?php echo htmlspecialchars( $membros["total_nao_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+			</div>
 		</div>
 
 		<div class="row mt-5 mb-3">
@@ -67,6 +74,14 @@
 
 			<label class="col-md-3"><b>Consultas com o Acupuntor:</b></label>
 			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_acupuntura"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-3"><b>Pressão e Glicemia:</b></label>
+			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_paglicemia"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+
+			<label class="col-md-3"><b>Triagem:</b></label>
+			<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_triagem"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 		</div>
 	</div>
 </div>

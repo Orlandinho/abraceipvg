@@ -20,7 +20,7 @@
   		</div>
 	</nav>
 	<div class="espaco"></div>
-<div class="wrapper">
+<div class="wrapper mb-4">
 	<div class="container">
 
 		<div class="row mb-4 mx-auto">

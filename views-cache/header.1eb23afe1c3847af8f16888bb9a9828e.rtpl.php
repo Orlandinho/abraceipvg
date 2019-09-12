@@ -9,5 +9,6 @@
 		<link href="/res/css/all.min.css" rel="stylesheet">
 		<link href="/res/css/bootstrap.min.css" rel="stylesheet">
 		<link href="/res/css/estilo.css" rel="stylesheet">
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 	</head>
 		

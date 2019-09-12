@@ -44,36 +44,43 @@
 		<div class="clearfix">
 			<div class="float-right">
 				<span class="text-danger">* </span><small class="text-muted">Campo obrigatório</small>
-				<span class="text-danger ml-2">** </span><small class="text-muted">Digite o cep e troque o campo para pesquisar o endereço</small>
+				<span class="text-danger ml-2">** </span><small class="text-muted">Digite o cep e clique no botão para pesquisar o endereço</small>
 			</div>
 		</div>
 		<form method="post" action="/cadastro">
 
 		  	<div class="form-group">
-		    	<label for="inputAddress">Nome Completo</label><span class="text-danger"> *</span>
-		    	<input type="text" class="form-control" name="nome" id="inputAddress" autofocus="yes">
+		    	<label for="inputName">Nome Completo</label><span class="text-danger"> *</span>
+		    	<input type="text" class="form-control" name="nome" id="inputName" autofocus="yes">
 		  	</div>
 
 		  	<div class="form-group">
-		    	<label for="inputAddress2">Endereço</label>
-		    	<input type="text" class="form-control" name="endereco" id="inputAddress2">
+		    	<label for="inputAddress">Endereço</label>
+		    	<input type="text" class="form-control" name="endereco" id="inputAddress">
 		  	</div>
 
 		  	<div class="form-row">
-		    	<div class="form-group col-md-6">
-		      		<label for="inputCity">Cidade</label>
-		      		<input type="text" class="form-control" name="cidade" id="inputCity">
-		    	</div>
-
 		    	<div class="form-group col-md-4">
 		      		<label for="inputBairro">Bairro</label>
 		      		<input type="text" class="form-control" name="bairro" id="inputBairro">
 		    	</div>
 
-		    	<div class="form-group col-md-2">
-		      		<label for="inputZip">Cep</label><span class="text-danger"> **</span>
-		      		<input type="text" class="form-control" name="cep" id="inputZip" placeholder="01234000">
+		    	<div class="form-group col-md-4">
+		      		<label for="inputCity">Cidade</label>
+		      		<input type="text" class="form-control" name="cidade" id="inputCity">
 		    	</div>
+		    	
+		    	<div class="form-group col-md-4">
+		      		<label for="inputZip">Cep</label><span class="text-danger"> **</span>
+		      		<div class="input-group">
+		      			<input type="text" class="form-control mr-2" name="cep" id="inputZip" pattern="[0-9]{5}-[0-9]{3}" title="Padrão: 00000-000" placeholder="01234-000">
+		      			<span class="input-group-btn">
+		      				<button type="button" class="btn btn-outline-danger" id="buttonZip">Pesquisar</button>
+		      			</span>
+		      		</div>
+		    	</div>
+
+		    	
 		  	</div>
 
 		  	<div class="form-row">
@@ -83,77 +90,36 @@
 		    	</div>
 		    	<div class="form-group col-md-3">
 		      		<label for="inputTel">Telefone</label>
-		      		<input type="text" class="form-control" id="inputTel" name="tel" placeholder="12345678">
+		      		<input type="text" class="form-control" id="inputTel" name="tel" pattern="[0-9]{4}-[0-9]{4}" title="Padrão: 0000-0000" placeholder="1234-5678">
 		    	</div>
 
 		    	<div class="form-group col-md-3">
 		      		<label for="inputCel">Celular</label>
-		      		<input type="text" class="form-control" id="inputCel" name="cel" placeholder="912345678">
+		      		<input type="text" class="form-control" id="inputCel" name="cel" pattern="[0-9]{5}-[0-9]{4}" title="Padrão: 00000-0000" placeholder="91234-5678">
 		    	</div>
 		  	</div>
 
-		  	<div class="my-3">
-		  		<h3>Dados da Triagem</h3>
-		  		<small class="form-text text-muted">Apenas números. Use decimal quando necessário, exceto P.A. Ex: 120x80 (12 por 8)</small>
-			</div>
+		  	<div class="form-row ml-1 my-2">
+		    	<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" name="permissao" id="permissao" value="1">
+					<label class="custom-control-label" for="permissao">Aceita receber informações sobre os próximos eventos realizados na Igreja Presbiteriana de Vila Gustavo</label>
+				</div>
 
-  			<div class="form-group row">
-	      		<label class="ml-3" for="idade">Idade</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="idade" name="idade">
-	      		</div>
-
-	      		<label class="ml-3" for="altura">Altura</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="altura" name="altura">
-	      		</div>
-
-	      		<label class="ml-3" for="peso">Peso</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="peso" name="peso">
-	      		</div>
-
-	      		<label class="ml-3" for="temperatura">Temperatura</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="temperatura" name="temperatura">
-	      		</div>
-	      	</div>
-
-	      	<div class="form-group row">
-	      		<label class="ml-3" for="pa">P.A.</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="pa" name="pa">
-	      		</div>
-
-	      		<label class="ml-3" for="glicemia">Glicemia</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="glicemia" name="glicemia">
-	      		</div>
-
-	      		<label class="ml-3" for="respiracao">Respiração</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="respiracao" name="respiracao">
-	      		</div>
-
-	      		<label class="ml-3" for="pulso">Pulso</label>
-	      		<div class="col-md-1">
-	      			<input type="text" class="form-control form-control-sm" id="pulso" name="pulso">
-	      		</div>
-	      	</div>
-
-	      	<div class="row col-md-7">
-				<textarea class="form-control" rows="2" name="obs" placeholder="Observações"></textarea>
+				<div class="custom-control custom-checkbox ml-4">
+					<input type="checkbox" class="custom-control-input" name="membro" id="membro" value="1">
+					<label class="custom-control-label" for="membro">Membro da Igreja</label>
+				</div>
 			</div>
 
 		  	<label class="my-3"><b>Encaminhamento</b></label><span class="text-danger"> *</span>
 		  	<div class="border col-sm-5">
-		  		<div class="row my-2 justify-content-center">
-			    	<div class="custom-control custom-checkbox mr-3">
+		  		<div class="row my-2">
+			    	<div class="custom-control custom-checkbox ml-4 mr-4">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox mr-4">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="oftalmo" value="2">
 						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
@@ -164,13 +130,13 @@
 					</div>
 				</div>
 
-				<div class="row my-2 justify-content-center">
-					<div class="custom-control custom-checkbox mr-3">
+				<div class="row my-2">
+					<div class="custom-control custom-checkbox ml-4 mr-4">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="massoterapia" value="4">
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox mr-4">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="acupuntura" value="5">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
@@ -178,6 +144,18 @@
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="ginecologista" value="6">
 						<label class="custom-control-label" for="ginecologista">Ginecologista</label>
+					</div>
+				</div>
+
+				<div class="row my-2 justify-content-center">
+					<div class="custom-control custom-checkbox mr-4">
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="paglicemia" value="7">
+						<label class="custom-control-label" for="paglicemia">P.A. & Glicemia</label>
+					</div>
+
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" name="opcoes[]" id="triagem" value="8">
+						<label class="custom-control-label" for="triagem">Triagem</label>
 					</div>
 				</div>
 			</div>

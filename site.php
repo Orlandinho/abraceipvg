@@ -6,6 +6,7 @@ use \Abrace\Model\Paciente;
 use \Abrace\Mailer;
 use \Abrace\Model\Colaboradores;
 
+
 $app = new Slim();
 
 $app->get('/login', function(){
@@ -255,11 +256,13 @@ $app->get('/relatorio', function(){
 	Colaboradores::verifyLogin();
 
 	$relatorio = Paciente::getRelatorio();
+	$membros = Paciente::getTotalMembros();
 
 	$page = new Page();
 
 	$page->setTpl('relatorio', [
-		"relatorio"=>$relatorio
+		"relatorio"=>$relatorio,
+		"membros"=>$membros
 	]);
 });
 

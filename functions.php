@@ -36,6 +36,14 @@ function pegarEspecialidade($numero)
 		case 6:
 			return "Ginecologista";
 			break;
+
+		case 7:
+			return "P.A. & Glicemia";
+			break;
+
+		case 8:
+			return "Triagem";
+			break;
 	}
 }
 

@@ -32,7 +32,6 @@
 		<div class="clearfix">
 			<div class="float-right">
 				<span class="text-danger">* </span><small>Campo obrigatório</small>
-				<span class="text-danger ml-2">** </span><small>É necessário pelo menos um contato</small>
 			</div>
 		</div>
 		<form method="post" action="/pesquisa/<?php echo htmlspecialchars( $paciente["idpaciente"], ENT_COMPAT, 'UTF-8', FALSE ); ?>">
@@ -71,18 +70,30 @@
 		    	</div>
 
 		    	<div class="form-group col-md-3">
-		      		<label for="inputTel">Telefone</label><span class="text-danger"> **</span>
+		      		<label for="inputTel">Telefone</label>
 		      		<input type="text" class="form-control" value="<?php echo htmlspecialchars( $paciente["tel"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="inputTel" name="tel" placeholder="1234-5678">
 		    	</div>
 
 		    	<div class="form-group col-md-3">
-		      		<label for="inputCel">Celular</label><span class="text-danger"> **</span>
+		      		<label for="inputCel">Celular</label>
 		      		<input type="text" class="form-control" value="<?php echo htmlspecialchars( $paciente["cel"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" id="inputCel" name="cel" placeholder="91234-5678">
 		    	</div>
 		  	</div>
 
-		  	<div class="mb-3">
-		  		<p><h3>Dados da Triagem</h3></p>
+		  	<div class="form-row ml-1 my-2">
+		    	<div class="custom-control custom-checkbox">
+					<input type="checkbox" class="custom-control-input" <?php if( $paciente["permissao"] == 1 ){ ?> checked <?php } ?> name="permissao" id="permissao" value="1">
+					<label class="custom-control-label" for="permissao">Aceita receber informações sobre os próximos eventos realizados na Igreja Presbiteriana de Vila Gustavo</label>
+				</div>
+
+				<div class="custom-control custom-checkbox ml-4">
+					<input type="checkbox" class="custom-control-input" <?php if( $paciente["membro"] == 1 ){ ?> checked <?php } ?> name="membro" id="membro" value="1">
+					<label class="custom-control-label" for="membro">Membro da Igreja</label>
+				</div>
+			</div>
+
+		  	<div class="my-3">
+		  		<p><h3>Incluir Dados de Triagem</h3></p>
 			</div>
 
   			<div class="form-group row">
@@ -135,31 +146,31 @@
 
 		  	<label class="my-3"><b>Encaminhamento</b></label><span class="text-danger"> *</span>
 		  	<div class="border col-sm-5">
-		  		<div class="row my-2 justify-content-center">
-			    	<div class="custom-control custom-checkbox mr-3">
+		  		<div class="row my-2">
+			    	<div class="custom-control custom-checkbox ml-4 mr-4">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["clinico"] == 1 ){ ?> checked <?php } ?> name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox mr-4">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["oftalmo"] == 2 ){ ?> checked <?php } ?> name="opcoes[]" id="oftalmo" value="2">
 						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["nutricionista"] == 3 ){ ?> checked <?php } ?> name="opcoes[]" id="nutricionista" value="3">
 						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
 					</div>
 				</div>
 
-				<div class="row my-2 justify-content-center">
+				<div class="row my-2">
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox ml-4 mr-4">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["massoterapia"] == 4 ){ ?> checked <?php } ?> name="opcoes[]" id="massoterapia" value="4">
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-3">
+					<div class="custom-control custom-checkbox mr-4">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["acupuntura"] == 5 ){ ?> checked <?php } ?> name="opcoes[]" id="acupuntura" value="5">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
@@ -167,6 +178,20 @@
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" <?php if( $check["ginecologia"] == 6 ){ ?> checked <?php } ?> name="opcoes[]" id="ginecologia" value="6">
 						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
+					</div>
+
+				</div>
+
+				<div class="row my-2 justify-content-center">
+
+					<div class="custom-control custom-checkbox mr-4">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["paglicemia"] == 7 ){ ?> checked <?php } ?> name="opcoes[]" id="paglicemia" value="7">
+						<label class="custom-control-label" for="paglicemia">P.A. & Glicemia</label>
+					</div>
+
+					<div class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" <?php if( $check["triagem"] == 8 ){ ?> checked <?php } ?> name="opcoes[]" id="triagem" value="8">
+						<label class="custom-control-label" for="triagem">Triagem</label>
 					</div>
 
 				</div>

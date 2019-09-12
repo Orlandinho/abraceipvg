@@ -2,17 +2,21 @@ $(document).ready(function() {
 
             function limpa_formulario_cep() {
                 // Limpa valores do formulário de cep.
-                $("#inputAddress2").val("");
+                $("#inputAddress").val("");
                 $("#inputBairro").val("");
                 $("#inputCity").val("");
                 $("#inputZip").val("");
             }
+
+            $("#inputCel").mask("00000-0000");
+            $("#inputTel").mask("0000-0000");
+            $("#inputZip").mask("00000-000");
             
-            //Quando o campo cep perde o foco.
-            $("#inputZip").blur(function() {
+            //Quando clica no botão ao lado do campo de cep.
+            $("#buttonZip").on('click', function() {
 
                 //Nova variável "cep" somente com dígitos.
-                var cep = $(this).val().replace(/\D/g, '');
+                var cep = $("#inputZip").val().replace(/\D/g, '');
 
                 //Verifica se campo cep possui valor informado.
                 if (cep != "") {
@@ -24,7 +28,7 @@ $(document).ready(function() {
                     if(validacep.test(cep)) {
 
                         //Preenche os campos com "..." enquanto consulta webservice.
-                        $("#inputAddress2").val("...");
+                        $("#inputAddress").val("...");
                         $("#inputBairro").val("...");
                         $("#inputCity").val("...");
 
@@ -33,7 +37,7 @@ $(document).ready(function() {
 
                             if (!("erro" in dados)) {
                                 //Atualiza os campos com os valores da consulta.
-                                $("#inputAddress2").val(dados.logradouro);
+                                $("#inputAddress").val(dados.logradouro);
                                 $("#inputBairro").val(dados.bairro);
                                 $("#inputCity").val(dados.localidade);
                             } //end if.

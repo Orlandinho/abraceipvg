@@ -31,15 +31,22 @@
 			<h4>Total Pacientes</h4>
 		</div>
 
-		<div class="row relatorio border-bottom border-danger">
-			<label class="col-md-2"><b>Total de Pacientes:</b></label>
-			<p class="col-md-2">{$relatorio.total_pacientes}</p>
+		<div class="border-bottom border-danger">
+			<div class="row">
+				<label class="col-md-3"><b>Total de Pacientes:</b></label>
+				<p class="col-md-2">{$relatorio.total_pacientes}</p>
 
-			<label class="col-md-2"><b>Total de Consultas:</b></label>
-			<p class="col-md-2">{$relatorio.total_consultas}</p>
+				<label class="col-md-3"><b>Total de Consultas:</b></label>
+				<p class="col-md-2">{$relatorio.total_consultas}</p>
+			</div>
 
-			<label class="col-md-2"><b>Consultas Atendidas:</b></label>
-			<p class="col-md-2">{$relatorio.total_atendido}</p>
+			<div class="row">
+				<label class="col-md-3"><b>Membros da Igreja:</b></label>
+				<p class="col-md-2">{$membros.total_membros}</p>
+
+				<label class="col-md-3"><b>Não Membros:</b></label>
+				<p class="col-md-2">{$membros.total_nao_membros}</p>
+			</div>
 		</div>
 
 		<div class="row mt-5 mb-3">
@@ -67,6 +74,14 @@
 
 			<label class="col-md-3"><b>Consultas com o Acupuntor:</b></label>
 			<p class="col-md-2">{$relatorio.total_acupuntura}</p>
+		</div>
+
+		<div class="row">
+			<label class="col-md-3"><b>Pressão e Glicemia:</b></label>
+			<p class="col-md-2">{$relatorio.total_paglicemia}</p>
+
+			<label class="col-md-3"><b>Triagem:</b></label>
+			<p class="col-md-2">{$relatorio.total_triagem}</p>
 		</div>
 	</div>
 </div>
