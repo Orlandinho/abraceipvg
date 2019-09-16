@@ -42,10 +42,10 @@
 
 			<div class="row">
 				<label class="col-md-3"><b>Membros da Igreja:</b></label>
-				<p class="col-md-2"><?php echo htmlspecialchars( $membros["total_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+				<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 
 				<label class="col-md-3"><b>Não Membros:</b></label>
-				<p class="col-md-2"><?php echo htmlspecialchars( $membros["total_nao_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
+				<p class="col-md-2"><?php echo htmlspecialchars( $relatorio["total_nao_membros"], ENT_COMPAT, 'UTF-8', FALSE ); ?></p>
 			</div>
 		</div>
 

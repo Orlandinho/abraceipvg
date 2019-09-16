@@ -136,7 +136,7 @@
 		<div class="row">
 			<label class="col-md-1"><b>Obs</b></label>
 			<?php if( $paciente["obs"] == null ){ ?>
-			<p class="col-md-2">Não informado</p>
+			<p class="col-md-2">Nenhuma</p>
 			<?php }else{ ?>
 			<p class="col-md-11"><?php echo corrigirNome($paciente["obs"]); ?></p>
 			<?php } ?>

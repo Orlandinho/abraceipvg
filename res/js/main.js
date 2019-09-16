@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function($) {
 
             function limpa_formulario_cep() {
                 // Limpa valores do formulário de cep.

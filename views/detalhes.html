@@ -136,7 +136,7 @@
 		<div class="row">
 			<label class="col-md-1"><b>Obs</b></label>
 			{if="$paciente.obs == null"}
-			<p class="col-md-2">Não informado</p>
+			<p class="col-md-2">Nenhuma</p>
 			{else}
 			<p class="col-md-11">{function="corrigirNome($paciente.obs)"}</p>
 			{/if}

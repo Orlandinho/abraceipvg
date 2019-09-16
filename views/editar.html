@@ -1,7 +1,9 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom border-danger fixed-top">
 		<div class="container">
-			<a class="navbar-brand" href="/"> Imagem Abrace <!-- <img src="img/abrace.png" width="25px" alt="Abrace IPVG">Logo do Abrace --> </a>
+			<a class="navbar-brand" href="/cadastro">
+    			<img src="/res/img/abrace.png" width="40" height="40" class="d-inline-block align-top" alt="Abrace Logo">
+  			</a>
 	    	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
 	    		<span class="navbar-toggler-icon"></span>
 	  		</button>
@@ -85,8 +87,10 @@
 					<input type="checkbox" class="custom-control-input" {if="$paciente.permissao == 1"} checked {/if} name="permissao" id="permissao" value="1">
 					<label class="custom-control-label" for="permissao">Aceita receber informações sobre os próximos eventos realizados na Igreja Presbiteriana de Vila Gustavo</label>
 				</div>
+			</div>
 
-				<div class="custom-control custom-checkbox ml-4">
+			<div class="form-row ml-1 my-2">
+				<div class="custom-control custom-checkbox">
 					<input type="checkbox" class="custom-control-input" {if="$paciente.membro == 1"} checked {/if} name="membro" id="membro" value="1">
 					<label class="custom-control-label" for="membro">Membro da Igreja</label>
 				</div>
@@ -147,17 +151,17 @@
 		  	<label class="my-3"><b>Encaminhamento</b></label><span class="text-danger"> *</span>
 		  	<div class="border col-sm-5">
 		  		<div class="row my-2">
-			    	<div class="custom-control custom-checkbox ml-4 mr-4">
+			    	<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.clinico == 1"} checked {/if} name="opcoes[]" id="clinico" value="1">
 						<label class="custom-control-label" for="clinico">Clínico Geral</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-4">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.oftalmo == 2"} checked {/if} name="opcoes[]" id="oftalmo" value="2">
 						<label class="custom-control-label" for="oftalmo">Oftalmologista</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.nutricionista == 3"} checked {/if} name="opcoes[]" id="nutricionista" value="3">
 						<label class="custom-control-label" for="nutricionista">Nutricionista</label>
 					</div>
@@ -165,31 +169,31 @@
 
 				<div class="row my-2">
 
-					<div class="custom-control custom-checkbox ml-4 mr-4">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.massoterapia == 4"} checked {/if} name="opcoes[]" id="massoterapia" value="4">
 						<label class="custom-control-label" for="massoterapia">Massoterapia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox mr-4">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.acupuntura == 5"} checked {/if} name="opcoes[]" id="acupuntura" value="5">
 						<label class="custom-control-label" for="acupuntura">Acupuntura</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.ginecologia == 6"} checked {/if} name="opcoes[]" id="ginecologia" value="6">
 						<label class="custom-control-label" for="ginecologia">Ginecologista</label>
 					</div>
 
 				</div>
 
-				<div class="row my-2 justify-content-center">
+				<div class="row my-2 justify-content-center-md">
 
-					<div class="custom-control custom-checkbox mr-4">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.paglicemia == 7"} checked {/if} name="opcoes[]" id="paglicemia" value="7">
 						<label class="custom-control-label" for="paglicemia">P.A. & Glicemia</label>
 					</div>
 
-					<div class="custom-control custom-checkbox">
+					<div class="custom-control custom-checkbox ml-4">
 						<input type="checkbox" class="custom-control-input" {if="$check.triagem == 8"} checked {/if} name="opcoes[]" id="triagem" value="8">
 						<label class="custom-control-label" for="triagem">Triagem</label>
 					</div>

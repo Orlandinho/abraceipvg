@@ -249,15 +249,6 @@ class Paciente extends Model {
 		return $results[0];
 	}
 
-	public static function getTotalMembros()
-	{
-		$sql = new Sql();
-
-		$results = $sql->select("SELECT * FROM vw_membros");
-
-		return $results[0];
-	}
-
 	public static function getDetails($idpaciente)
 	{
 

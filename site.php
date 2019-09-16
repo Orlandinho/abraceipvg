@@ -256,13 +256,11 @@ $app->get('/relatorio', function(){
 	Colaboradores::verifyLogin();
 
 	$relatorio = Paciente::getRelatorio();
-	$membros = Paciente::getTotalMembros();
 
 	$page = new Page();
 
 	$page->setTpl('relatorio', [
-		"relatorio"=>$relatorio,
-		"membros"=>$membros
+		"relatorio"=>$relatorio
 	]);
 });
 
